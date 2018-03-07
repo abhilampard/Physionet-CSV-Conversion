@@ -17,7 +17,7 @@ for i in range(1,len(files)+1):
 	recordname=str(files.iloc[[i]])
 	print(recordname[:-4])
 	recordname_new=recordname[-7:-4] #Extracting just the filename part (will differ from database to database)
-	record = wfdb.rdsamp(recordname_new)
+	record = wfdb.rdsamp(recordname_new) # rdsamp() returns the signal as a numpy array  
 	record=np.asarray(record[0])
 	path=recordname_new+".csv"
 	np.savetxt(path,record,delimiter=",") #Writing the CSV for each record
